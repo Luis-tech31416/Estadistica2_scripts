@@ -2,8 +2,8 @@
 
 You can use the [editor on GitHub](https://github.com/Luis-tech31416/Estadistica2_scripts/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
-[](Análisis_desc_datos_mex)
-[](Análisis_desc_votaciones_INE)
+[Análisis Datos de México](Análisis_desc_datos_mex)
+[Análisis Votaciones](Análisis_desc_votaciones_INE)
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
