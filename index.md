@@ -14,4 +14,5 @@ Ejercicios, práticas y apuntes en ``R``.
 ### Regresión lineal simple
 
 1. [Ejemplo práctico](modelolineal.html)
+
 2. [Hocedasticidad](modelolineal2.html)
