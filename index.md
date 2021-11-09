@@ -16,3 +16,5 @@ Ejercicios, práticas y apuntes en ``R``.
 1. [Ejemplo práctico](modelolineal.html)
 
 2. [Hocedasticidad](modelolineal2.html)
+
+3. [Linealidad](linealidad.html)
