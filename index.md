@@ -18,3 +18,5 @@ Ejercicios, práticas y apuntes en ``R``.
 2. [Hocedasticidad](modelolineal2.html)
 
 3. [Linealidad](linealidad.html)
+
+4. [Linealidad2](linealidad2.html)
