@@ -18,7 +18,10 @@ Ejercicios, práticas y apuntes en ``R``.
 2. [Hocedasticidad](modelolineal2.html)
 
 3. [Transformación de tipo Box-Cox](transformacionbx1.html)
- 
-4. [Linealidad](linealidad.html)
 
-5. [Linealidad2](linealidad2.html)
+4. [Regresión ponderada](regresionPon.html)
+
+5. [Linealidad](linealidad.html)
+
+6. [Linealidad2](linealidad2.html)
+
