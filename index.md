@@ -21,7 +21,10 @@ Ejercicios, práticas y apuntes en ``R``.
 
 4. [Regresión ponderada](regresionPon.html)
 
-5. [Linealidad](linealidad.html)
+5. [Linealidad 1](linealidad0.html)
 
-6. [Linealidad2](linealidad2.html)
+6. [Linealidad 2](linealidad.html)
 
+7. [Linealidad 3](linealidad2.html)
+
+8. [Normalidad]()
