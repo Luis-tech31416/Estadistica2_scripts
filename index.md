@@ -27,4 +27,6 @@ Ejercicios, práticas y apuntes en ``R``.
 
 7. [Linealidad 3: Ejemplo](linealidad2.html)
 
-8. [Normalidad]()
+8. [Normalidad 1](normalidad.html)
+
+9. [Normalidad 2](normalidad2.html)
