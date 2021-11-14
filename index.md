@@ -1,6 +1,6 @@
 ## Estadística no paramétrica y de regresión lineal
 
-Ejercicios, práticas y apuntes en ``R``.
+Ejercicios, prácticas y apuntes en ``R``.
 
 ## Primera parte del curso
 
@@ -30,3 +30,7 @@ Ejercicios, práticas y apuntes en ``R``.
 8. [Normalidad 1](normalidad.html)
 
 9. [Normalidad 2](normalidad2.html)
+
+10. [Covarianza cero](covarianza.html)
+
+11. [Covarianza cero: ejemplo](covarianza2.html)
