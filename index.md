@@ -36,3 +36,5 @@ Ejercicios, prácticas y apuntes en ``R``.
 11. [Covarianza cero: ejemplo](covarianza2.html)
 
 12. [Valores influyentes y outliers](outliers.html)
+
+13. [x categórica](cat1.html)
