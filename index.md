@@ -44,3 +44,5 @@ Ejercicios, prácticas y apuntes en ``R``.
 ### Predicción
 
 1. [Intervalos de predicción](predic.html)
+
+2. [Validación cruzada](medidas_des.html)
