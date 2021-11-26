@@ -44,3 +44,8 @@ Ejercicios, prácticas y apuntes en ``R``.
 1. [Intervalos de predicción](predic.html)
 
 2. [Validación cruzada](medidas_des.html)
+
+
+### Examen 1
+
+[Versión 1](Tarea-Examen1_RegLinSim_VB)
