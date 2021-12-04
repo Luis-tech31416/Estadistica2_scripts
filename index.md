@@ -48,4 +48,4 @@ Ejercicios, prácticas y apuntes en ``R``.
 
 ### Examen 1
 
-[Versión 1](Tarea-Examen1_RegLinSim_VB)
+[Versión B](Tarea-Examen1_RegLinSim_VB.html)
