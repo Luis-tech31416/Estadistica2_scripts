@@ -1,3 +1,7 @@
+## Inferencia estadística
+
+[Curso](inferencia.md)
+
 ## Estadística no paramétrica y de regresión lineal
 
 Ejercicios, prácticas y apuntes en ``R``.
