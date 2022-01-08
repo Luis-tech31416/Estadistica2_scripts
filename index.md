@@ -53,3 +53,7 @@ Ejercicios, prácticas y apuntes en ``R``.
 ### Examen 1
 
 [Versión B](Tarea-Examen1_RegLinSim_VB.html)
+
+## Segunda parte del curso
+
+### Regresión lineal múltiple
