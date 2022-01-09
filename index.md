@@ -57,3 +57,5 @@ Ejercicios, prácticas y apuntes en ``R``.
 ## Segunda parte del curso
 
 ### Regresión lineal múltiple
+
+1. [Prueba lineal general](RLM1.html)
