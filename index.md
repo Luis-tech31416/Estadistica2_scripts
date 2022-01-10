@@ -60,6 +60,8 @@ Ejercicios, prácticas y apuntes en ``R``.
 
 1. [Prueba lineal general](RLM1.html)
 
-1. [Interpretación de los coeficientes](RLM2.html)
+2. [Interpretación de los coeficientes](RLM2.html)
 
-1. [Xi discreta](RLM3.html)
+3. [Xi discreta](RLM3.html)
+
+4. [Ejemplo problema tipo Anova](RLM4.html)
