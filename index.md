@@ -59,3 +59,7 @@ Ejercicios, prácticas y apuntes en ``R``.
 ### Regresión lineal múltiple
 
 1. [Prueba lineal general](RLM1.html)
+
+1. [Interpretación de los coeficientes](RLM2.html)
+
+1. [Xi discreta](RLM3.html)
