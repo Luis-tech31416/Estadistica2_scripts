@@ -1,0 +1,268 @@
+\item[2.] Genere una muestra aleatoria $X_{1},\ldots, X_{n}$, de tamaño $n=30$, de una población con distribución $\mathcal{N}(5,4)$. Genere otra muestra aleatoria $Y_{1},\ldots, Y_{m}$, de tamaño $m=50$, de una población con distribución $\mathcal{N}(2,4)$. Obtenga los intervalos de confianza para $\mu_{x}-\mu_{y}$ tales que
+
+\begin{enumerate}
+    \item[a)] Intervalo del $80\%$ de confianza, suponiendo $\sigma^{2}$ conocida. 
+    \item[b)] Intervalo del $80\%$ de confianza, suponiendo $\sigma^{2}$ desconocida común.
+     \item[c)] Intervalo del $95\%$ de confianza, suponiendo $\sigma^{2}$ conocida. 
+    \item[d)] Intervalo del $95\%$ de confianza, suponiendo $\sigma^{2}$ desconocida común.
+\end{enumerate}
+
+Repita el proceso generando cada una de las muestras 100 veces.
+¿Cómo son los intervalos? Identifique los intervalos con mayor longitud y con menos longitud. Compare y explique los resultados.
+
+\textit{Solución:}
+
+$a)$ Usaremos que un intervalo al $100(1-\alpha)\%$ de confianza para $\mu_{x}-\mu_{y}$ cuando $\sigma^{2}$ es conocida es (el cual está dado en el libro del profe)
+
+\begin{equation}
+    \left((\bar{X}-\bar{Y})-z_{1-\alpha/2}\sqrt{\frac{\sigma^{2}}{n}+\frac{\sigma^{2}}{m}},(\bar{X}-\bar{Y})+z_{1-\alpha/2}\sqrt{\frac{\sigma^{2}}{n}+\frac{\sigma^{2}}{m}}\right) \label{eq1}
+\end{equation}
+
+De tal manera comenzamos generando las muestras aleatorias con las indicaciones dadas
+
+\begin{lstlisting}[style=C]
+n <- 30
+m <- 50
+
+mx <- rnorm(n, mean = 5, sd=2)
+my <- rnorm(m, mean = 2, sd=2)
+\end{lstlisting}
+
+y después hacemos los cálculos pertientes
+
+\begin{lstlisting}[style=C]
+xbarra <- sum(mx) / n
+ybarar <- sum(my) / m
+
+# notemos que alpha = 0.2
+
+alfamedios <- 1 - 0.2 / 2
+z <- pnorm(alphamedios, mean = 0, sd = 1)
+
+r <- ( (4 / n) + (4 / m) ) ** 0.5
+\end{lstlisting}
+
+Después definimos y cálculamos los límites inferior y superior del intervalo de confianza dado en $(\ref{eq1})$:
+
+\begin{lstlisting}[style=C]
+lim_inferior <- xbarra - ybarra - z * r
+lim_superior <- xbarra - ybarra + z * r
+\end{lstlisting}
+
+Finalmente vemos el intervalo del $80\%$ de confianza para $\mu_{x}-\mu_{y}$:
+
+\begin{lstlisting}[style=C]
+print(paste("(", lim_inferior, ",", lim_superior, ")"))
+
+## "( 2.64181502427697 , 3.39554799431473 )"
+\end{lstlisting}
+
+$b)$ Usaremos que un intervalo al $100(1-\alpha)\%$ para $\mu_{x}-\mu_{y}$, cuando $\sigma^{2}$ es desconocido es (el cual está dado en el libro del profe) 
+
+\begin{equation}
+    \left((\bar{X}-\bar{Y})-t^{1-\alpha/2}_{n+m-2}\sqrt{\left(\frac{1}{n}+\frac{1}{m}\right)S^{2}_{p}}, (\bar{X}-\bar{Y})+t^{1-\alpha/2}_{n+m-2}\sqrt{\left(\frac{1}{n}+\frac{1}{m}\right)S^{2}_{p}}\right) \label{ec2}
+\end{equation}
+
+Donde 
+
+$$
+S_{p}^{2}=\frac{(n-1)S^{2}_{x}+(m-1)S^{2}_{y}}{n+m-2}
+$$
+
+De forma análoga al inciso anterior haremos los respectivos cálculos:
+
+\begin{lstlisting}[style=C]
+# cuantil para la t
+
+alphamedios <- 1 - 0.2 / 2
+t <- qt(uno_alphamedios, df = n + m - 2)
+
+# S cuadrada
+
+Sx <- ( 1 / (n-1) ) * sum( (mx - xbarra) ** 2 ) 
+Sy <- ( 1 / (m-1) ) * sum( (my - ybarra) ** 2 ) 
+
+# Ademas
+
+Sp <- ( (n-1) * Sx + (m-1) * Sy ) / (n + m -2) 
+
+r <- ( ((1 / n) + (1 / m)) * Sp ) ** 0.5
+\end{lstlisting}
+
+para posteriormente crear el intervalo
+
+\begin{lstlisting}[style=C]
+# limites
+
+lim_inferior <- xbarra - ybarra - t * r
+lim_superior <- xbarra - ybarra + t * r
+
+# intervalo
+
+print(paste("(", lim_inferior, ",", lim_superior, ")"))
+
+## "( 1.98675117512603 , 3.18265949255385 )"
+\end{lstlisting}
+
+Incisos $c)$ y $d)$: resolveremos estos ejercicios a la par. De hecho, bastará con reutilizar el código de los incisos $a)$ y $b)$:
+
+\textbf{Código para el inciso c)}
+
+\begin{lstlisting}[style=C]
+# En este caso alpha = 0.05
+
+alphamedios <- 1 - 0.05 / 2
+z <- pnorm(alphamedios, mean = 0, sd = 1)
+
+r <- ( (4 / n) + (4 / m) ) ** 0.5
+
+# limites
+
+lim_inferior <- xbarra - ybarra - z * r
+lim_superior <- xbarra - ybarra + z * r
+
+# Resultado
+print(paste("(", lim_inferior, ",", lim_superior, ")"))
+
+## "( 2.53351045798609 , 3.30505352484752 )"
+\end{lstlisting}
+
+
+\newpage
+
+\textbf{Código para el inciso d)}
+
+\begin{lstlisting}[style=C]
+# notemos que alpha = 0.05
+
+alphamedios <- 1 - 0.05 / 2
+t <- qt(alphamedios, df = n + m - 2)
+
+# S cuadrada
+
+Sx <- ( 1 / (n-1) ) * sum( (mx - xbarra) ** 2 ) 
+Sy <- ( 1 / (m-1) ) * sum( (my - ybarra) ** 2 ) 
+
+# Sp
+
+Sp <- ( (n-1) * Sx + (m-1) * Sy ) / (n + m -2) 
+
+r <- ( ((1 / n) + (1 / m)) * Sp ) ** 0.5
+
+# limites
+
+lim_inferior <- xbarra - ybarra - t * r
+lim_superior <- xbarra - ybarra + t * r
+
+# intervalo
+
+print(paste("(", limite_inferior, ",", limite_superior, ")"))
+
+## "( 1.74441177103715 , 3.52176604804797 )"
+\end{lstlisting}
+
+Finalmente, para la parte final nos auxiliaremos del código que el ayudante compartió.
+
+Haremos la simulación 100 ayudándonos de un \textit{for} y del código que escribimos en los incisos anteriores
+
+\newpage
+
+\begin{lstlisting}[style=C]
+# Cargamos las librerías
+library(ggplot2)
+library(dplyr)
+
+# nos auxiliamos de dos vectores
+lim_inf <- c()
+lim_sup <- c()
+
+# hacemos la simulación 100
+for( i in 1:100 ){
+  mx <- rnorm(n, mean = 5, sd=2)
+  my <- rnorm(m, mean = 2, sd=2)
+  xbarra <- sum(mx) / n
+  ybarra <- sum(my) / m
+  alphamedios <- 1 - 0.2 / 2
+  z <- pnorm(alphamedios, mean = 0, sd = 1)
+  r <- ( (4 / n) + (4 / m) ) ** 0.5
+  lim_inferior <- x_bar - y_bar - z * r
+  lim_superior <- x_bar - y_bar + z * r
+  lim_inf[i] <- lim_inferior
+  lim_sup[i] <- lim_superior
+}
+
+x <- 100
+df <- data.frame(x = x,
+                 y = 3,
+                 limite_inferior = lim_inf,
+                 limite_superior = lim_sup)
+df <- df %>% mutate(long_int = limite_superior - limite_inferior)
+df <- df %>% arrange(long_int)
+
+df['x'] <- 1:100
+
+ggplot(df, aes(x, y)) + geom_point() + 
+  geom_errorbar(aes(ymin = limite_inferior, ymax = limite_superior))
+\end{lstlisting}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{Captura2.PNG}
+\end{figure}
+
+
+
+\newpage
+
+Luego, para simular 100 veces una muestra cuando la $\sigma^{2}$ es desconocida usamos
+
+\begin{lstlisting}[style=C]
+
+# nos auxiliamos de dos vectores
+lim_inf <- c()
+lim_sup <- c()
+
+# hacemos la simulación 100
+for( i in 1:100 ){
+  mx <- rnorm(n, mean = 5, sd=2)
+  my <- rnorm(m, mean = 2, sd=2)
+  xbarra <- sum(mx) / n
+  ybarra <- sum(my) / m
+  alphamedios <- 1 - 0.2 / 2
+  t <- qt(alphamedios, df = n + m - 2)
+  Sx <- ( 1 / (n-1) ) * sum( (mx - xbarra) ** 2 )
+  Sy <- ( 1 / (m-1) ) * sum( (my - ybarra) ** 2 )
+  Sp <- ( (n-1) * Sx + (m-1) * Sy ) / (n + m -2)
+  r <- ( ((1 / n) + (1 / m)) * Sp ) ** 0.5
+  lim_inferior <- x_bar - y_bar - t * r
+  lim_superior <- x_bar - y_bar + t * r
+  lim_inf[i] <- lim_inferior
+  lim_sup[i] <- lim_superior
+}
+
+x <- 100
+df <- data.frame(x = x,
+                 y = 3,
+                 limite_inferior = lim_inf,
+                 limite_superior = lim_sup)
+df <- df %>% mutate(long_int = limite_superior - limite_inferior)
+df <- df %>% arrange(long_int)
+
+df['x'] <- 1:100
+
+ggplot(df, aes(x, y)) + geom_point() + 
+  geom_errorbar(aes(ymin = limite_inferior, ymax = limite_superior))
+\end{lstlisting}
+
+Después debemos repetir el proceso para:
+
+\begin{enumerate}
+    \item[c.] Intervalos del $95\%$ de confianza cuando la $\sigma^{2}$ es conocida
+    \item[d.] Intervalos del $95\%$ de confianza cuando la $\sigma^{2}$ es desconocida
+\end{enumerate}
+
+para lo cual el código des las páginas anteriores sirve y tan sólo debemos cambiar el valor de $\alpha$.
+
+Faltan escribir las conclusiones.
+
+\newpage
