@@ -65,3 +65,18 @@ Ejercicios, prácticas y apuntes en ``R``.
 3. [Xi discreta](RLM3.html)
 
 4. [Ejemplo problema tipo Anova](RLM4.html)
+
+5. [Ejemplo con igualdad de pendientes y sin igualdad](RLM5.html)
+
+### Examen 2
+
+[Versión B](Tarea-Examen2_RegLinMul_VB.html)
+
+## Tercera parte del curso
+
+### Introducción a la estadística no paramétrica
+
+### Examen 3
+
+[Versión B](Tarea-Examen3_NoPar_VB.html)
+
