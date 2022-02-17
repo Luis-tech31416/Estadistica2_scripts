@@ -2,6 +2,10 @@
 
 [Curso](inferencia.md)
 
+## Series de tiempo y modelos de supervivencia
+
+[Curso](series.md)
+
 ## Estadística no paramétrica y de regresión lineal
 
 Ejercicios, prácticas y apuntes en ``R``.
