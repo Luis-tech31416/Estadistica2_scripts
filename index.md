@@ -1,5 +1,7 @@
 ## Inferencia estadística
 
+[prueba alan](ej1.html)
+
 [Curso](inferencia.md)
 
 ## Series de tiempo y modelos de supervivencia
